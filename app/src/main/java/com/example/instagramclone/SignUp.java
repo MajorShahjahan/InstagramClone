@@ -1,7 +1,9 @@
 package com.example.instagramclone;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +24,7 @@ import java.util.List;
 public class SignUp extends AppCompatActivity implements View.OnClickListener{
 
     private EditText edtBoxerName, edtPunchPower, edtPunchSpeed;
-    private Button btnSave, btnGetAllData;
+    private Button btnSave, btnGetAllData,btnTransition;
     private TextView txtGetData;
     private String allKickBoxer;
 
@@ -39,6 +41,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         txtGetData = findViewById(R.id.txtGetData);
         btnSave = findViewById(R.id.btnGetAllData);
         btnGetAllData = findViewById(R.id.btnGetAllData);
+        btnTransition = findViewById(R.id.btnTransition);
 
         txtGetData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +87,16 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                         }
                     }
                 });
+            }
+        });
+
+        btnTransition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(SignUp.this,SignUpLoginActivity.class);
+                startActivity(intent);
+
             }
         });
 
