@@ -36,7 +36,8 @@ public class Login extends AppCompatActivity {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
 
-                    onClickLogin(btnLogin);
+                    onClickLogin(
+                            btnLogin);
                 }
 
                 return false;
@@ -69,6 +70,7 @@ public class Login extends AppCompatActivity {
                     if (user != null && e == null) {
 
                         Toast.makeText(Login.this, user.getUsername() + " " + "Successfully Login", Toast.LENGTH_SHORT).show();
+                        transitionToSocialMediaActivity();
 
                     } else {
 
@@ -98,6 +100,11 @@ public class Login extends AppCompatActivity {
 
             e.printStackTrace();
         }
+    }
+
+    public void transitionToSocialMediaActivity(){
+        Intent intent = new Intent(Login.this,SocialMediaActivity.class);
+        startActivity(intent);
     }
 
 }

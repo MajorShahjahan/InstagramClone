@@ -51,7 +51,8 @@ public class SignUpLoginActivity extends AppCompatActivity  {
         btnSignUp = findViewById(R.id.btnSignUp);
 
         if (ParseUser.getCurrentUser() != null){
-            ParseUser.getCurrentUser().logOut();
+            //ParseUser.getCurrentUser().logOut();
+            transitionToSocialMediaActivity();
         }
 
     }
@@ -80,12 +81,14 @@ public class SignUpLoginActivity extends AppCompatActivity  {
                     if (e == null) {
 
                         Toast.makeText(SignUpLoginActivity.this, "Signed Up Successfully", Toast.LENGTH_SHORT).show();
+                        transitionToSocialMediaActivity();
                     } else {
 
                         Toast.makeText(SignUpLoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
 
                     progressDialog.dismiss();
+
                 }
             });
         }
@@ -111,6 +114,11 @@ public class SignUpLoginActivity extends AppCompatActivity  {
             e.printStackTrace();
         }
 
+    }
+
+    public void transitionToSocialMediaActivity(){
+        Intent intent = new Intent(SignUpLoginActivity.this,SocialMediaActivity.class);
+        startActivity(intent);
     }
 
 
